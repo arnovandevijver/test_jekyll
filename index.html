@@ -1,0 +1,30 @@
+---
+layout: default
+myName: Arno
+---
+
+<h1>Homepage</h1>
+
+
+<h2>Latest blogposts</h2>
+{% assign posts = site.posts %}
+{% for item in posts %}
+    {% if forloop.first %}<ul>{% endif %}
+        <li>
+            <h3 class="orange">{{ item.title }}</h3>
+            <p class="date">{{ item.date }}</p>
+            <p>{{ item.blogpostSummary }}</p>
+        </li>
+    {% if forloop.last %}</ul>{% endif %}
+{% endfor %}
+
+<h2>Latest works</h2>
+{% assign works = site.portfolio %}
+{% for item in works reversed %}
+    {% if forloop.first %}<ul>{% endif %}
+        <li>
+            <h3 class="orange">{{ item.title }}</h3>
+            <p class="date">{{ item.date }}</p>
+        </li>
+    {% if forloop.last %}</ul>{% endif %}
+{% endfor %}
